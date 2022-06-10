@@ -1,0 +1,59 @@
+
+.catBlock {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+  
+    margin: 0.5%;
+    width: 225px;
+    height: 225px;
+  
+    box-shadow:rgba(0, 0, 0, 0.24);
+    background-color: white;
+    border: 1px solid black;
+    transition: width 0.3s, height 0.3s;
+  }
+
+.catBlock:hover {
+  width: 255px;
+  height: 255px;
+}
+
+
+.catButtonWrapper{
+  width: 225px;
+  height: 112px;
+}
+
+.catButtonWrapper .showOnHover{
+  opacity: 0;
+  float: right;
+}
+
+.catButtonWrapper:hover .showOnHover{
+  opacity: 1;
+}
+
+/* top right bottom left */
+.catButton {
+  margin: 10% 20px 28px auto;
+  float: right;
+  background: transparent;
+  border: transparent;
+}
+
+  .FontAwesomeIcon {
+    width: 40px;
+    height: 35px;
+    color: #FF3A00;
+    opacity: 0;
+    transition: all 1s ease;
+  }
+
+  .FontAwesomeIcon:hover {
+    color: #F24E1E;
+    opacity: 1;
+  }
+
+
+
