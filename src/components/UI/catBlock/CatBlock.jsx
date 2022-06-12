@@ -11,7 +11,7 @@ import { faHeart as faHeartSolid } from "@fortawesome/free-solid-svg-icons";
 // Подключить API
 // <x> Подрубить React router
 
-const CatBlock = (props) => {
+const CatBlock = () => {
   const [isFav, setIsFav] = useState(false);
 
   const toggleHeartIcon = () => setIsFav(!isFav);
