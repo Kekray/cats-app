@@ -1,9 +1,13 @@
 .btn {
-    padding: 5px 15px;
-    color: white;
-    background-color: #2196f3;
-    font-size: 14px;
-    border: 1px solid #2196f3;
-    cursor: pointer;
-    
+  padding: 5px 15px;
+  margin: 2px;
+  color: white;
+  background-color: #2196f3;
+  font-size: 14px;
+  border: 1px solid #2196f3;
+  cursor: pointer;
+}
+
+.btn:hover {
+  box-shadow: 0 8px 10px 0 rgba(0, 0, 0, 0.24);
 }

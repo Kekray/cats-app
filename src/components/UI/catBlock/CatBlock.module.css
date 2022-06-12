@@ -48,6 +48,7 @@
     color: #FF3A00;
     opacity: 0;
     transition: all 1s ease;
+    cursor: pointer;
   }
 
   .FontAwesomeIcon:hover {
