@@ -5,12 +5,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart as faHeartRegular } from "@fortawesome/free-regular-svg-icons";
 import { faHeart as faHeartSolid } from "@fortawesome/free-solid-svg-icons";
 
-//TODO:
-// <x>Создать замену иконки по true (Sol)/false (Reg)
-// Создать логику избранного
-// Подключить API
-// <x> Подрубить React router
-
 const CatBlock = () => {
   const [isFav, setIsFav] = useState(false);
 
