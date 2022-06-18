@@ -25,7 +25,7 @@ const CatBlock = (props) => {
   const heartFill = isFav ? faHeartSolid : faHeartRegular;
 
   const heartStyle = isFav
-    ? `${styles.FontAwesomeIcon} ${styles.showOnHover}`
+    ? `${styles.FontAwesomeIcon}`
     : `${styles.FontAwesomeIcon} ${styles.showOnHover}`;
 
   return (

@@ -6,17 +6,21 @@ import CatList from "../UI/list/catLIst";
 import FavList from "../UI/list/favList";
 
 function App() {
-  const [favourites, setFavourites] = useState([]);
+  const savedCats = JSON.parse(localStorage.getItem("FavCats"));
+
+  const [favourites, setFavourites] = useState(savedCats || []);
 
   const [cats, setCats] = useState([]);
 
+
+  
   useEffect(() => {
     getCatRequest();
   }, []);
 
   const getCatRequest = async () => {
     const url =
-      "https://api.thecatapi.com/v1/images/search?limit=12&page=10&order=DESC?api_key=4cf3092e-218c-4c83-985f-e70322bf1b4a";
+      "https://api.thecatapi.com/v1/images/search?limit=54&order=DESC?api_key=4cf3092e-218c-4c83-985f-e70322bf1b4a";
 
     const response = await fetch(url);
     const responseJson = await response.json();
@@ -26,12 +30,25 @@ function App() {
     setCats(responseJson);
   };
 
-  // Добавить сравнение id в массиве и с кликом
+  // const loadSavedData = () => {
+  //   const savedCats = JSON.parse(localStorage.getItem("FavCats"));
+  //   if (savedCats.length > 0) {
+  //     favourites.indexOf(savedCats.id) === -1
+  //       ? setFavourites(savedCats)
+  //       : console.log("This item already exists LOL");
+  //   }
+  //   console.log("Nothing to load");
+  // };
+
+  console.log(favourites);
+
   const addFavouriteCat = (cat) => {
     const newFavouriteList = [...favourites, cat];
     favourites.indexOf(cat.id) === -1
       ? setFavourites(newFavouriteList)
       : console.log("This item already exists");
+    localStorage.setItem("FavCats", JSON.stringify(newFavouriteList));
+
   };
 
   const removeFavouriteCat = (cat) => {
@@ -40,6 +57,7 @@ function App() {
     );
 
     setFavourites(newFavouriteList);
+    localStorage.setItem("FavCats", JSON.stringify(newFavouriteList));
   };
 
   return (
