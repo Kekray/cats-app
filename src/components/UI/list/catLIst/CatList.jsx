@@ -1,6 +1,6 @@
 import React from "react";
-import styles from "../Pages.module.css";
-import propTypes from "prop-types";
+import PropTypes  from "prop-types";
+import styles from "../List.module.css";
 import CatBlock from "../../catBlock/CatBlock";
 
 const CatList = (props) => {
@@ -8,15 +8,19 @@ const CatList = (props) => {
 
   return (
     <div className={styles.wrapper}>
-      {cats.map((cat, index) => (
-        <CatBlock key={index} value={cat} />
+      {cats.map((cat) => (
+        <CatBlock
+          key={cat.id}
+          value={cat}
+        />
       ))}
     </div>
   );
 };
 
-// CatList.propTypes = {
-//   cats: propTypes.node.isRequired,
-// };
+CatList.propTypes = {
+  cats: PropTypes.array
+};
+
 
 export default CatList;
