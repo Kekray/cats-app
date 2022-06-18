@@ -10,9 +10,6 @@ const CatBlock = (props) => {
   const cat = props.value;
   const liked = cat.liked;
 
-  // Использовать Local Storage
-  // Использовать бесконечную загрузку
-
   const [isFav, setIsFav] = useState(liked);
 
   const { addFavouriteCat, removeFavouriteCat } = useContext(CatContext);

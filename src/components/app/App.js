@@ -11,8 +11,6 @@ function App() {
   const [favourites, setFavourites] = useState(savedCats || []);
 
   const [cats, setCats] = useState([]);
-
-
   
   useEffect(() => {
     getCatRequest();
@@ -29,16 +27,6 @@ function App() {
     });
     setCats(responseJson);
   };
-
-  // const loadSavedData = () => {
-  //   const savedCats = JSON.parse(localStorage.getItem("FavCats"));
-  //   if (savedCats.length > 0) {
-  //     favourites.indexOf(savedCats.id) === -1
-  //       ? setFavourites(savedCats)
-  //       : console.log("This item already exists LOL");
-  //   }
-  //   console.log("Nothing to load");
-  // };
 
   console.log(favourites);
 
