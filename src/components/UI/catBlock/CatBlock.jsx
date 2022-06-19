@@ -33,7 +33,7 @@ const CatBlock = (props) => {
         isFav ? removeFavouriteCat(cat) : addFavouriteCat(cat);
       }}
     >
-      <img src={cat.url} alt="cat"></img>
+      <img src={cat.url} alt="loading"></img>
       <FontAwesomeIcon icon={heartFill} className={heartStyle} />
     </div>
   );

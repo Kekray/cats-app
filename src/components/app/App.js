@@ -11,7 +11,7 @@ function App() {
   const [favourites, setFavourites] = useState(savedCats || []);
 
   const [cats, setCats] = useState([]);
-  
+
   useEffect(() => {
     getCatRequest();
   }, []);
@@ -22,13 +22,11 @@ function App() {
 
     const response = await fetch(url);
     const responseJson = await response.json();
-    responseJson.forEach((obj) => {
-      obj.liked = false;
+    responseJson.forEach((cat) => {
+      cat.liked = false;
     });
     setCats(responseJson);
   };
-
-  console.log(favourites);
 
   const addFavouriteCat = (cat) => {
     const newFavouriteList = [...favourites, cat];
@@ -36,16 +34,31 @@ function App() {
       ? setFavourites(newFavouriteList)
       : console.log("This item already exists");
     localStorage.setItem("FavCats", JSON.stringify(newFavouriteList));
-
+    checkData();
   };
 
   const removeFavouriteCat = (cat) => {
     const newFavouriteList = favourites.filter(
       (favourite) => favourite.id !== cat.id
     );
-
+    for (let i = 0; i < cats.length; i++) {
+      if (cats[i].id === cat.id) cats[i].liked = false;
+    }
     setFavourites(newFavouriteList);
     localStorage.setItem("FavCats", JSON.stringify(newFavouriteList));
+    checkData();
+  };
+
+  const checkData = () => {
+    if (cats !== []) {
+      for (let i = 0; i < cats.length; i++) {
+        for (let j = 0; j < favourites.length; j++) {
+          if (favourites[j].id === cats[i].id) {
+            cats[i].liked = true;
+          }
+        }
+      }
+    }
   };
 
   return (

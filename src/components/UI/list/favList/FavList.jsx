@@ -5,7 +5,7 @@ import CatBlock from "../../catBlock/CatBlock";
 
 const FavList = (props) => {
   const favCats = props.favCats;
-  // Создать функцию вызова API, чтобы загрузить избранные картинки
+
   return (
     <div className={styles.wrapper}>
       {favCats.map((cat) => (
