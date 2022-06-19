@@ -46,7 +46,6 @@ function App() {
     }
     setFavourites(newFavouriteList);
     localStorage.setItem("FavCats", JSON.stringify(newFavouriteList));
-    checkData();
   };
 
   const checkData = () => {
