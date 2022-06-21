@@ -1,9 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import { CatContext } from "../UI/context/CatContext";
-import MyHeader from "../UI/header";
-import CatList from "../UI/list/catLIst";
-import FavList from "../UI/list/favList";
+import { CatContext } from "../context/CatContext";
+import MyRouter from "../router/MyRouter";
 
 function App() {
   const savedCats = JSON.parse(localStorage.getItem("FavCats"));
@@ -67,18 +64,7 @@ function App() {
         removeFavouriteCat,
       }}
     >
-      <Router>
-        <>
-          <MyHeader />
-          <Routes>
-            <Route path="/" element={<CatList cats={cats} />} />
-            <Route
-              path="favourite/"
-              element={<FavList favCats={favourites} />}
-            />
-          </Routes>
-        </>
-      </Router>
+      <MyRouter cats={cats} favourites={favourites} />
     </CatContext.Provider>
   );
 }

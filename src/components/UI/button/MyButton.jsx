@@ -2,8 +2,12 @@ import React from "react";
 import styles from "./MyButton.module.css";
 import propTypes from "prop-types";
 
-const MyButton = (props) => {
-  return <button className={styles.btn}>{props.children}</button>;
+const MyButton = ({ children }) => {
+  return (
+    <button className={styles.btn}>
+      {children}
+    </button>
+  );
 };
 
 MyButton.propTypes = {
