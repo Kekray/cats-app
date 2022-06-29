@@ -33,4 +33,8 @@
 # От себя
 Данное задание я выбрал, чтобы проверить свою самостоятельность.
 Работу свою выполняет, хоть можно и добавить axios, бесконечную прокрутку и настроить роутер корректно.
+Использовал иконки [Font Awesome](https://fontawesome.com/search?s=solid%2Cbrands).
 Планирую в будущем апгрейднуть.
+# Скриншоты
+![cats-app-3](https://user-images.githubusercontent.com/97908844/174827025-a3e67388-ac03-490a-8d3d-1b8b4809abf2.png)
+![cats-app-4](https://user-images.githubusercontent.com/97908844/174827637-21ff62ed-3644-4aba-9256-042206657d32.png)
