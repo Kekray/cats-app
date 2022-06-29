@@ -1,25 +1,29 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import MyHeader from "../UI/header/MyHeader";
+import {
+  BrowserRouter as Router,
+  Navigate,
+  Route,
+  Routes,
+} from "react-router-dom";
 import propTypes from "prop-types";
-import CatList from "../UI/list/catLIst/CatList";
-import FavList from "../UI/list/favList/FavList";
+import CatList from "../../pages/CatList";
+import FavList from "../../pages/FavList";
 
-const MyRouter = (props) => {
+const MyRouter = ({ children }) => {
   return (
     <Router>
-      <MyHeader />
+      {children}
       <Routes>
-        <Route path="/" element={<CatList cats={props.cats} />} />
-        <Route path="favourite/" element={<FavList favCats={props.favourites} />} />
+        <Route path="/" element={<CatList />} />
+        <Route path="favourite/" element={<FavList />} />
+        <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </Router>
   );
 };
 
 MyRouter.propTypes = {
-  cats: propTypes.array,
-  favourites: propTypes.array,
+  children: propTypes.node.isRequired,
 };
 
 export default MyRouter;

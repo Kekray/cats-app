@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from "react";
+
 import { CatContext } from "../context/CatContext";
 import MyRouter from "../router/MyRouter";
+import MyHeader from "../UI/header/MyHeader";
+import PostService from "../../API/PostService";
 
 function App() {
   const savedCats = JSON.parse(localStorage.getItem("FavCats"));
 
-  const [favourites, setFavourites] = useState(savedCats || []);
+  const [favCats, setFavCats] = useState(savedCats || []);
 
   const [cats, setCats] = useState([]);
 
@@ -14,11 +17,8 @@ function App() {
   }, []);
 
   const getCatRequest = async () => {
-    const url =
-      "https://api.thecatapi.com/v1/images/search?limit=54&order=DESC?api_key=4cf3092e-218c-4c83-985f-e70322bf1b4a";
-
-    const response = await fetch(url);
-    const responseJson = await response.json();
+    const response = await PostService.getAll();
+    const responseJson = await response.data;
     responseJson.forEach((cat) => {
       cat.liked = false;
     });
@@ -26,30 +26,30 @@ function App() {
   };
 
   const addFavouriteCat = (cat) => {
-    const newFavouriteList = [...favourites, cat];
-    favourites.indexOf(cat.id) === -1
-      ? setFavourites(newFavouriteList)
+    const newFavouriteList = [...favCats, cat];
+    favCats.indexOf(cat.id) === -1
+      ? setFavCats(newFavouriteList)
       : console.log("This item already exists");
     localStorage.setItem("FavCats", JSON.stringify(newFavouriteList));
     checkData();
   };
 
   const removeFavouriteCat = (cat) => {
-    const newFavouriteList = favourites.filter(
+    const newFavouriteList = favCats.filter(
       (favourite) => favourite.id !== cat.id
     );
     for (let i = 0; i < cats.length; i++) {
       if (cats[i].id === cat.id) cats[i].liked = false;
     }
-    setFavourites(newFavouriteList);
+    setFavCats(newFavouriteList);
     localStorage.setItem("FavCats", JSON.stringify(newFavouriteList));
   };
 
   const checkData = () => {
     if (cats !== []) {
       for (let i = 0; i < cats.length; i++) {
-        for (let j = 0; j < favourites.length; j++) {
-          if (favourites[j].id === cats[i].id) {
+        for (let j = 0; j < favCats.length; j++) {
+          if (favCats[j].id === cats[i].id) {
             cats[i].liked = true;
           }
         }
@@ -57,14 +57,19 @@ function App() {
     }
   };
 
+
   return (
     <CatContext.Provider
       value={{
         addFavouriteCat,
         removeFavouriteCat,
+        cats,
+        favCats
       }}
     >
-      <MyRouter cats={cats} favourites={favourites} />
+      <MyRouter>
+        <MyHeader />
+      </MyRouter>
     </CatContext.Provider>
   );
 }
