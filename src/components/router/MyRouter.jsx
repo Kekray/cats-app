@@ -1,6 +1,6 @@
 import React from "react";
 import {
-  BrowserRouter as Router,
+  HashRouter as Router,
   Navigate,
   Route,
   Routes,
@@ -11,11 +11,11 @@ import FavList from "../../pages/FavList";
 
 const MyRouter = ({ children }) => {
   return (
-    <Router basename={process.env.PUBLIC_URL}>
+    <Router basename="/">
       {children}
       <Routes>
         <Route path="/" element={<CatList />} />
-        <Route path="favourite/" element={<FavList />} />
+        <Route path="/favourite" element={<FavList />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </Router>
