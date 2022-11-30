@@ -8,6 +8,7 @@ import { faHeart as faHeartSolid } from "@fortawesome/free-solid-svg-icons";
 
 const CatBlock = (props) => {
   const cat = props.value;
+
   const liked = cat.liked;
 
   const [isFav, setIsFav] = useState(liked);
@@ -33,7 +34,7 @@ const CatBlock = (props) => {
         isFav ? removeFavouriteCat(cat) : addFavouriteCat(cat);
       }}
     >
-      <img src={cat.url} alt="loading"></img>
+      <img src={cat.url} alt={"cat"}/>
       <FontAwesomeIcon icon={heartFill} className={heartStyle} />
     </div>
   );

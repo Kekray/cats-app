@@ -7,10 +7,10 @@ const MyHeader = () => {
   return (
     <div className={styles.header}>
       <Link to="/">
-        <MyButton>Все коты</MyButton>
+        <MyButton>All cats</MyButton>
       </Link>
       <Link to="favourite/">
-        <MyButton>Избранное</MyButton>
+        <MyButton>Favourites</MyButton>
       </Link>
     </div>
   );
