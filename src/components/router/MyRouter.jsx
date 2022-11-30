@@ -11,7 +11,7 @@ import FavList from "../../pages/FavList";
 
 const MyRouter = ({ children }) => {
   return (
-    <Router>
+    <Router basename={process.env.PUBLIC_URL}>
       {children}
       <Routes>
         <Route path="/" element={<CatList />} />
