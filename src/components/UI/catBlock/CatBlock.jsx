@@ -13,7 +13,7 @@ const CatBlock = (props) => {
 
   const [isFav, setIsFav] = useState(liked);
 
-  const { addFavouriteCat, removeFavouriteCat } = useContext(CatContext);
+  const { addFavouriteCat, removeFavouriteCat,  } = useContext(CatContext);
 
   const toggleLike = () => {
     setIsFav(!isFav);
@@ -34,7 +34,8 @@ const CatBlock = (props) => {
         isFav ? removeFavouriteCat(cat) : addFavouriteCat(cat);
       }}
     >
-      <img src={cat.url} alt={"cat"}/>
+
+      <img src={cat.url} alt={""}/>
       <FontAwesomeIcon icon={heartFill} className={heartStyle} />
     </div>
   );

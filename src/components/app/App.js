@@ -4,6 +4,7 @@ import { CatContext } from "../context/CatContext";
 import MyRouter from "../router/MyRouter";
 import MyHeader from "../UI/header/MyHeader";
 import PostService from "../../API/PostService";
+// import MyLoader from "../UI/loader/MyLoader";
 
 function App() {
   const savedCats = JSON.parse(localStorage.getItem("FavCats"));
@@ -11,10 +12,20 @@ function App() {
   const [favCats, setFavCats] = useState(savedCats || []);
 
   const [cats, setCats] = useState([]);
-  
+
+  const [loading, setLoading] = useState(true);
+
   useEffect(() => {
-    getCatRequest();
+    fetchData();
   }, []);
+
+  const fetchData = async () => {
+    try {
+      getCatRequest();
+    } catch (error) {
+      console.error(error.message);
+    }
+  };
 
   const getCatRequest = async () => {
     const response = await PostService.getAll();
@@ -23,7 +34,9 @@ function App() {
       cat.liked = false;
     });
     setCats(responseJson);
-    console.log(response);
+    setLoading(false);
+
+    // console.log(response);
   };
 
   const addFavouriteCat = (cat) => {
@@ -58,18 +71,19 @@ function App() {
     }
   };
 
-
   return (
     <CatContext.Provider
       value={{
         addFavouriteCat,
         removeFavouriteCat,
         cats,
-        favCats
+        favCats,
+        loading,
       }}
     >
       <MyRouter>
         <MyHeader />
+        
       </MyRouter>
     </CatContext.Provider>
   );
