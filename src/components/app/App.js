@@ -11,7 +11,7 @@ function App() {
   const [favCats, setFavCats] = useState(savedCats || []);
 
   const [cats, setCats] = useState([]);
-
+  
   useEffect(() => {
     getCatRequest();
   }, []);
@@ -23,6 +23,7 @@ function App() {
       cat.liked = false;
     });
     setCats(responseJson);
+    console.log(response);
   };
 
   const addFavouriteCat = (cat) => {
