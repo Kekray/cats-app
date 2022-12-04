@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.css": "/frontend-challenge/static/css/main.d0ecca0e.css",
-    "main.js": "/frontend-challenge/static/js/main.feef1014.js",
-    "index.html": "/frontend-challenge/index.html",
-    "main.d0ecca0e.css.map": "/frontend-challenge/static/css/main.d0ecca0e.css.map",
-    "main.feef1014.js.map": "/frontend-challenge/static/js/main.feef1014.js.map"
+    "main.css": "/cats-app/static/css/main.d0ecca0e.css",
+    "main.js": "/cats-app/static/js/main.feef1014.js",
+    "index.html": "/cats-app/index.html",
+    "main.d0ecca0e.css.map": "/cats-app/static/css/main.d0ecca0e.css.map",
+    "main.feef1014.js.map": "/cats-app/static/js/main.feef1014.js.map"
   },
   "entrypoints": [
     "static/css/main.d0ecca0e.css",
